@@ -4,6 +4,7 @@
 - Install wordpress locally, using Local by Flywheel - PHP version must be > 7.4 (Simply Static plugin requires it).
 - Adjust settings in admin dashboard:
   - Discussion - check off "Allow people to submit comments on new posts"
+- Download the latest official wordpress theme (parent) and activate the customized child theme.
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).
