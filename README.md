@@ -3,6 +3,7 @@
 # Instructions:
 - Install wordpress locally, using Local by Flywheel - PHP version must be > 7.4 (Simply Static plugin requires it).
 - Adjust settings in admin dashboard:
+  - General - set tagline to 'WordPress Plugin' 
   - Discussion - check off "Allow people to submit comments on new posts"
 - Download the latest official wordpress theme (parent) and activate the customized child theme:
   - Open full site editor and edit header:
