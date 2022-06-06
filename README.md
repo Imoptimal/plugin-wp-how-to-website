@@ -3,9 +3,11 @@
 # Instructions:
 - Install wordpress locally, using Local by Flywheel - PHP version must be > 7.4 (Simply Static plugin requires it).
 - Adjust settings in admin dashboard:
-  - General - set tagline to 'WordPress Plugin' 
+  - General - set tagline to 'WordPress Plugin'
+  - Writing - set static page as a Homepage (homepage created as instructed below)
   - Discussion - check off "Allow people to submit comments on new posts"
 - Add pages:
+  - Homepage (slug: homepage) with hardcoded content (set template to homepage template)
   - Buy Premium page (slug: buy-premium) with hardcoded content (set template to buy-premium template)
   - FAQ page (slug: faq) with hardcoded content (set template to faq template)
   - Privacy Policy page (slug: privacy-policy) with hardcoded content
