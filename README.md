@@ -6,16 +6,15 @@
   - General - set tagline to 'WordPress Plugin' 
   - Discussion - check off "Allow people to submit comments on new posts"
 - Add pages:
-  - Privacy Policy page (slug: privacy-policy) with hardcoded content
-  - FAQ page (slug: faq) with hardcoded content (set template to faq template)
   - Buy Premium page (slug: buy-premium) with hardcoded content (set template to buy-premium template)
+  - FAQ page (slug: faq) with hardcoded content (set template to faq template)
+  - Privacy Policy page (slug: privacy-policy) with hardcoded content
 - Download the latest official wordpress theme (parent) and activate the customized child theme:
   - Open full site editor and edit header:
     - Add site logo to header (resize uploaded logo to width of 150px) - to the left position
-    - Add navigation ('How to Tutorials' and 'Plugin Tutorials' category page) - to the right position
+    - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page) - to the right position
   - Edit footer:
-    - Add navigation ('WP HOW TO - WordPress plugin' - absolute path to subdomain, 'Privacy Policy' page) - to the left position
-    - Add text Created with 'Simply Static & GitHub Pages' (with their respective homepage links) - to the right position
+    - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page) - to the center position (alignment)
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).
