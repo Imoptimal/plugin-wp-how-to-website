@@ -16,7 +16,7 @@
     - Add site logo to header (resize uploaded logo to width of 150px) - to the left position
     - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page) - to the right position
   - Edit footer:
-    - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page) - to the center position (alignment)
+    - Add columns block (with 'Buy Premium', 'FAQ' and 'Privacy Policy' page links) - to the center position (alignment)
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).
