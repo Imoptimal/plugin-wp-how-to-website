@@ -14,9 +14,9 @@
 - Download the latest official wordpress theme (parent) and activate the customized child theme:
   - Open full site editor and edit header:
     - Add site logo to header (resize uploaded logo to width of 150px) - to the left position
-    - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page) - to the right position
+    - Add navigation ('Buy Premium', 'Go to Video Tutorials' - homepage of main domain - open in the new tab, 'FAQ' and 'Privacy Policy' page) - to the right position
   - Edit footer:
-    - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page) - to the center position (alignment)
+    - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page - open all in the new tab) - to the center position (alignment)
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).
