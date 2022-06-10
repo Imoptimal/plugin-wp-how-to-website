@@ -18,7 +18,6 @@
   - Edit footer:
     - Add navigation ('Buy Premium', 'FAQ' and 'Privacy Policy' page - open all in the new tab) - to the center position (alignment)
     - Add columns block (with 'Buy Premium', 'FAQ' and 'Privacy Policy' page links) - to the center position (alignment)
->>>>>>> cab75504f5090c43277c86caed0b5412c19a63ec
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).
