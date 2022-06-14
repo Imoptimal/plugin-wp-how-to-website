@@ -4,10 +4,9 @@ function websiteStartsWith(str, word) {
     return str.lastIndexOf(word, 0) === 0;
 }
 var wpHowTo_mainDomain = websiteStartsWith(wpHowTo_websiteUrl, 'https://wphowto.tv');
-var wpHowTo_freeSubdomain = websiteStartsWith(wpHowTo_websiteUrl, 'https://free.wphowto.tv');
 var wpHowTo_pluginSubdomain = websiteStartsWith(wpHowTo_websiteUrl, 'https://plugin.wphowto.tv');
 
-// Add google search to website
+// Add Google search to website
 function addCustomGoogleSearch(scriptSrc) {
     var searchScript = document.createElement('script');
     searchScript.src = scriptSrc;
@@ -24,17 +23,17 @@ function addCustomGoogleSearch(scriptSrc) {
     var searchDiv = document.createElement('div');
     searchDiv.classList.add('gcse-search');
     parentDiv.appendChild(searchDiv);
+    if (window.self != window.top) {
+        // Hide Google search if website in iframe
+        searchIcon.style.display = 'none';
+    }
     // Google search show/hide
     searchIcon.addEventListener('click', function() {
         this.classList.toggle('clicked');
         parentDiv.classList.toggle('clicked');
     });
 }
-if (wpHowTo_mainDomain === true) {
-    addCustomGoogleSearch("https://cse.google.com/cse.js?cx=f276d6b0c7b698cb6");
-} else if (wpHowTo_freeSubdomain === true) {
-    addCustomGoogleSearch("https://cse.google.com/cse.js?cx=b49ce21fd0532682d");
-}
+addCustomGoogleSearch("https://cse.google.com/cse.js?cx=f276d6b0c7b698cb6");
 
 // When page has loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -48,12 +47,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var videosParent = document.querySelector('.youtube-videos');
     var youtubeItems = document.querySelectorAll('.youtube-item');
     var youtubeItemsArray = Array.prototype.slice.call(youtubeItems, 0);
-    var reversedVideosArray = youtubeItemsArray.reverse();
-    var numOfVideos = youtubeItemsArray.length;
+    var allVideos = youtubeItemsArray.length;
     var links = document.querySelectorAll('.youtube-item .link');
     var linksArray = Array.prototype.slice.call(links, 0);
     var favouriteButtons = document.querySelectorAll('.youtube-item .buttons .favourite');
     var favouritesArray = Array.prototype.slice.call(favouriteButtons, 0);
+    var relevanceFilter = document.createElement('button');
+    var dateFilter = document.createElement('button');
+    var backToTop = document.createElement('button');
 
     // Disable post date link (not useful)
     if (dateLinks) {
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-    // Premium only (vs free version code)
+
     if (wpHowTo_mainDomain === true || wpHowTo_pluginSubdomain === true) {
         // Only if the website is in an iframe
         if (window.self != window.top) {
@@ -79,14 +80,12 @@ document.addEventListener("DOMContentLoaded", function() {
             if (title) {
                 titleHeight += title.offsetHeight;
             }
-            var relevanceFilter = document.createElement('button');
             relevanceFilter.classList.add('relevance-filter');
             relevanceFilter.classList.add('selected');
             relevanceFilter.innerText = 'Filter by relevance';
             if (contentSection) {
                 contentSection.prepend(relevanceFilter);
             }
-            var dateFilter = document.createElement('button');
             dateFilter.classList.add('date-filter');
             dateFilter.innerText = 'Newest first';
             if (contentSection) {
@@ -122,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             relevanceFilter.addEventListener("click", filterByRelevance);
             // Display 'back to top' button
-            var backToTop = document.createElement('button');
             backToTop.classList.add('back-to-top');
             backToTop.innerText = 'Back to top';
             if (contentSection) {
@@ -135,32 +133,14 @@ document.addEventListener("DOMContentLoaded", function() {
             backToTop.addEventListener("click", scrollToTop);
         } else {
             // When visiting the website directly (not iframe)
-            var onlyFive = numOfVideos - 5;
-            for (var i = 0; i < onlyFive; i++) {
-                reversedVideosArray[i].classList.add('premium-only');
+            for (var i = 0; i < 5; i++) {
+                if (youtubeItemsArray.length > 0) {
+                    youtubeItemsArray[i].style.display = 'block';
+                }
             }
             favouritesArray.forEach(function(button) {
                 button.style.display = 'none';
             });
-        }
-    } else if (wpHowTo_freeSubdomain === true) { // For free users
-        favouritesArray.forEach(function(button) {
-            button.style.display = 'none';
-        });
-        // Only if the website is in an iframe
-        if (window.self != window.top) {
-            header.classList.add('premium-only');
-            footer.classList.add('premium-only');
-            if (contentSection) {
-                var buyPremium = document.createElement('a');
-                buyPremium.classList.add('buy-premium');
-                buyPremium.innerText = 'Buy Premium License';
-                buyPremium.href = 'https://plugin.wphowto.tv/buy-premium/';
-                buyPremium.setAttribute('target', '_blank');
-                contentSection.appendChild(buyPremium);
-            }
-        } else { // If accessed directly, redirect to main domain
-            window.location.replace(wpHowTo_mainDomain);
         }
     }
 
@@ -255,6 +235,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Detect data sent back to iframed website
     window.addEventListener("message", function(event) {
+        // Detect license (premium or not)
+        if (event.data.wpHowTo_freemiusLicense) {
+            var premiumLicense = event.data.wpHowTo_freemiusLicense;
+            // Only if the website is in an iframe
+            if (window.self != window.top) {
+                if (premiumLicense === 'true') {
+                    for (var i = 0; i < allVideos; i++) {
+                        // Display all items
+                        if (youtubeItemsArray.length > 0) {
+                            youtubeItemsArray[i].style.display = 'block';
+                        }
+                    }
+                } else { // If it's free version of plugin
+                    if (youtubeItemsArray.length > 0) {
+                        // Display only 1 video per item
+                        youtubeItemsArray[0].style.display = 'block';
+                    }
+                    // Hide filter buttons
+                    relevanceFilter.style.display = 'none';
+                    dateFilter.style.display = 'none';
+                    // Hide 'add to favourites' buttons
+                    favouritesArray.forEach(function(button) {
+                        button.style.display = 'none';
+                    });
+                    // Hide 'Back to top' button
+                    backToTop.style.display = 'none';
+                    // Add 'Buy Premium' link to the bottom of the page
+                    if (contentSection) {
+                        var buyPremium = document.createElement('a');
+                        buyPremium.classList.add('buy-premium');
+                        buyPremium.innerText = 'Buy Premium License';
+                        buyPremium.href = 'https://plugin.wphowto.tv/buy-premium/';
+                        buyPremium.setAttribute('target', '_blank');
+                        contentSection.appendChild(buyPremium);
+                    }
+                }
+            }
+        }
         // Last watched video div scroll into view
         if (event.data.wpHowTo_selectedVideoDiv) {
             var divId = event.data.wpHowTo_selectedVideoDiv;

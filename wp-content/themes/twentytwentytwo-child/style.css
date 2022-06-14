@@ -28,6 +28,11 @@ body {
     color: #fbf0de;
     background-color: #000000;
     margin-top: 50px;
+    overflow-x: hidden;
+}
+
+body * {
+    word-break: break-all !important;
 }
 
 div {
@@ -113,8 +118,9 @@ header.premium-only~main {
     bottom: 25px;
 }
 
+.youtube-item,
 .premium-only {
-    display: none !important;
+    display: none;
 }
 
 .buy-premium {

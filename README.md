@@ -6,6 +6,11 @@
   - General - set tagline to 'WordPress Plugin'
   - Writing - set static page as a Homepage (homepage created as instructed below)
   - Discussion - check off "Allow people to submit comments on new posts"
+- Add post category:
+  - Json Data (slug: json-data)
+- Add posts (in Json Data category):
+  - Title - wordpress-plugin; content - code block with wordpress-plugin.json content manually pasted into (json file from RPD plugin 3rd step)
+  - Title - wordpress-topic; content - code block with wordpress-code.json content manually pasted into (json file from RPD plugin 3rd step)
 - Add pages:
   - Homepage (slug: homepage) with hardcoded content (set template to homepage template)
   - Buy Premium page (slug: buy-premium) with hardcoded content (set template to buy-premium template)

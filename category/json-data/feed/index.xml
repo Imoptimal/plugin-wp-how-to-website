@@ -8,8 +8,8 @@
 	>
 
 <channel>
-	<title>plugin.wphowto.tv</title>
-	<atom:link href="http://localhost/feed/" rel="self" type="application/rss+xml" />
+	<title>Json Data &#8211; plugin.wphowto.tv</title>
+	<atom:link href="http://localhost/category/json-data/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>WordPress Plugin</description>
 	<lastBuildDate>Tue, 14 Jun 2022 16:20:20 +0000</lastBuildDate>
@@ -22,7 +22,7 @@
 
 <image>
 	<url>/wp-content/uploads/2022/06/wp-how-to-150x150.png</url>
-	<title>plugin.wphowto.tv</title>
+	<title>Json Data &#8211; plugin.wphowto.tv</title>
 	<link>/</link>
 	<width>32</width>
 	<height>32</height>
