@@ -29,7 +29,7 @@
 </image> 
 	<item>
 		<title>wordpress-topic</title>
-		<link>/wordpress-topic/</link>
+		<link>/json-data/wordpress-topic/</link>
 		
 		<dc:creator><![CDATA[Imoptimal]]></dc:creator>
 		<pubDate>Tue, 14 Jun 2022 16:20:20 +0000</pubDate>
@@ -46,7 +46,7 @@
 			</item>
 		<item>
 		<title>wordpress-plugin</title>
-		<link>/wordpress-plugin/</link>
+		<link>/json-data/wordpress-plugin/</link>
 		
 		<dc:creator><![CDATA[Imoptimal]]></dc:creator>
 		<pubDate>Tue, 14 Jun 2022 16:18:37 +0000</pubDate>

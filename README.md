@@ -6,6 +6,7 @@
   - General - set tagline to 'WordPress Plugin'
   - Writing - set static page as a Homepage (homepage created as instructed below)
   - Discussion - check off "Allow people to submit comments on new posts"
+  - Permalinks - rename category to "tutorials"; set custom structure to "/%category%/%postname%/"
 - Add post category:
   - Json Data (slug: json-data)
 - Add posts (in Json Data category):
