@@ -19,6 +19,7 @@
     - Add navigation ('Buy Premium', 'Go to Video Tutorials' - homepage of main domain - open in the new tab, 'FAQ' and 'Privacy Policy' page) - to the right position
   - Edit footer:
     - Add columns block ('Buy Premium', 'FAQ' and 'Privacy Policy' page - open all in the new tab) - to the center position (alignment)
+    - Add navigation with 'WordPress Plugin Json' and 'WordPress Topic Json' pages (to generate static pages) - will be hidden by javascript.
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).

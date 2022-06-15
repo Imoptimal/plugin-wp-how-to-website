@@ -12,26 +12,28 @@ function addCustomGoogleSearch(scriptSrc) {
     searchScript.src = scriptSrc;
     searchScript.type = 'text/javascript';
     var mainContent = document.getElementsByTagName('main')[0];
-    mainContent.appendChild(searchScript);
-    var searchIcon = document.createElement('a');
-    searchIcon.classList.add('gcse-icon');
-    searchIcon.title = 'Open/close search';
-    mainContent.appendChild(searchIcon);
-    var parentDiv = document.createElement('div');
-    parentDiv.classList.add('gcse-parent');
-    mainContent.appendChild(parentDiv);
-    var searchDiv = document.createElement('div');
-    searchDiv.classList.add('gcse-search');
-    parentDiv.appendChild(searchDiv);
-    if (window.self != window.top) {
-        // Hide Google search if website in iframe
-        searchIcon.style.display = 'none';
+    if (mainContent) {
+        mainContent.appendChild(searchScript);
+        var searchIcon = document.createElement('a');
+        searchIcon.classList.add('gcse-icon');
+        searchIcon.title = 'Open/close search';
+        mainContent.appendChild(searchIcon);
+        var parentDiv = document.createElement('div');
+        parentDiv.classList.add('gcse-parent');
+        mainContent.appendChild(parentDiv);
+        var searchDiv = document.createElement('div');
+        searchDiv.classList.add('gcse-search');
+        parentDiv.appendChild(searchDiv);
+        if (window.self != window.top) {
+            // Hide Google search if website in iframe
+            searchIcon.style.display = 'none';
+        }
+        // Google search show/hide
+        searchIcon.addEventListener('click', function() {
+            this.classList.toggle('clicked');
+            parentDiv.classList.toggle('clicked');
+        });
     }
-    // Google search show/hide
-    searchIcon.addEventListener('click', function() {
-        this.classList.toggle('clicked');
-        parentDiv.classList.toggle('clicked');
-    });
 }
 addCustomGoogleSearch("https://cse.google.com/cse.js?cx=f276d6b0c7b698cb6");
 
@@ -55,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var relevanceFilter = document.createElement('button');
     var dateFilter = document.createElement('button');
     var backToTop = document.createElement('button');
+    // Hide the footer nav containing json pages with data for search
+    var footerNav = document.querySelector('footer nav');
+    footerNav.style.display = 'none';
 
     // Disable post date link (not useful)
     if (dateLinks) {
