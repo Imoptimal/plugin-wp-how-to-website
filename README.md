@@ -6,17 +6,13 @@
   - General - set tagline to 'WordPress Plugin'
   - Writing - set static page as a Homepage (homepage created as instructed below)
   - Discussion - check off "Allow people to submit comments on new posts"
-  - Permalinks - rename category to "tutorials"; set custom structure to "/%category%/%postname%/"
-- Add post category:
-  - Json Data (slug: json-data)
-- Add posts (in Json Data category):
-  - Title - wordpress-plugin; content - code block with wordpress-plugin.json content manually pasted into (json file from RPD plugin 3rd step)
-  - Title - wordpress-topic; content - code block with wordpress-code.json content manually pasted into (json file from RPD plugin 3rd step)
 - Add pages:
   - Homepage (slug: homepage) with hardcoded content (set template to homepage template)
   - Buy Premium page (slug: buy-premium) with hardcoded content (set template to buy-premium template)
   - FAQ page (slug: faq) with hardcoded content (set template to faq template)
   - Privacy Policy page (slug: privacy-policy) with hardcoded content
+  - WordPress Plugin Json (slug: wordpress-plugin-json) with hardcoded content (set template to wordpress-plugin-json template)
+  - WordPress Topic Json (slug: wordpress-topic-json) with hardcoded content (set template to wordpress-topic-json template)
 - Download the latest official wordpress theme (parent) and activate the customized child theme:
   - Open full site editor and edit header:
     - Add site logo to header (resize uploaded logo to width of 150px) - to the left position
