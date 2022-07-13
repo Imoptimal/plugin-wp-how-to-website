@@ -315,11 +315,13 @@ document.addEventListener("DOMContentLoaded", function() {
         // Only if the website is accessed directly
         if (window.self === window.top) {
             var firstVideoParent = linksArray[0];
-            var firstVideoLink = linksArray[0].href;
-            var videoLink = adjustLinks(firstVideoLink);
-            if (youtubePlayer) {
-                youtubePlayer.src = videoLink;
-                firstVideoParent.classList.add('playing');
+            if (firstVideoParent) {
+                var firstVideoLink = firstVideoParent.href;
+                var videoLink = adjustLinks(firstVideoLink);
+                if (youtubePlayer) {
+                    youtubePlayer.src = videoLink;
+                    firstVideoParent.classList.add('playing');
+                }
             }
         }
     }
@@ -375,22 +377,32 @@ document.addEventListener("DOMContentLoaded", function() {
         var favTitle = link.innerText;
         var favDivId = divWithLink.id;
         var favPageLink = window.location.href;
+        var data = {};
         // Only if the website is in an iframe
         if (window.self != window.top) {
-            // Send to parent window
-            var data = {};
-            data['wpHowTo_favLink'] = favLink;
-            data['wpHowTo_favTitle'] = favTitle;
-            data['wpHowTo_favDivId'] = favDivId;
-            data['wpHowTo_favPageLink'] = favPageLink;
-            window.parent.postMessage(data, "*");
-        }
-        if (clickedFavButton.classList.contains('selected')) {
-            clickedFavButton.classList.remove('selected');
-            clickedFavButton.innerText = 'Add to favourites';
-        } else {
-            clickedFavButton.classList.add('selected');
-            clickedFavButton.innerText = 'Already in favourites!';
+            if (clickedFavButton.classList.contains('selected')) {
+                clickedFavButton.classList.remove('selected');
+                clickedFavButton.innerText = 'Add to favourites';
+                // If video is removed from favourites
+                data['wpHowTo_favLink'] = favLink;
+                data['wpHowTo_favTitle'] = favTitle;
+                data['wpHowTo_favDivId'] = favDivId;
+                data['wpHowTo_favPageLink'] = favPageLink;
+                data['wpHowTo_added'] = 'false';
+                // Send to parent window
+                window.parent.postMessage(data, "*");
+            } else {
+                clickedFavButton.classList.add('selected');
+                clickedFavButton.innerText = 'Already in favourites!';
+                // If video is added to favourites
+                data['wpHowTo_favLink'] = favLink;
+                data['wpHowTo_favTitle'] = favTitle;
+                data['wpHowTo_favDivId'] = favDivId;
+                data['wpHowTo_favPageLink'] = favPageLink;
+                data['wpHowTo_added'] = 'true';
+                // Send to parent window
+                window.parent.postMessage(data, "*");
+            }
         }
     }
     favouritesArray.forEach(function(button) {
