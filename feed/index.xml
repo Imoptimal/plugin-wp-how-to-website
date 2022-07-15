@@ -12,13 +12,13 @@
 	<atom:link href="http://localhost/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>WordPress Plugin</description>
-	<lastBuildDate>Sun, 03 Jul 2022 18:57:12 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 15 Jul 2022 11:34:21 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.0</generator>
+	<generator>https://wordpress.org/?v=6.0.1</generator>
 
 <image>
 	<url>/wp-content/uploads/2022/06/wp-how-to-150x150.png</url>
