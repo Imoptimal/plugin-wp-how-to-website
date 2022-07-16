@@ -8,7 +8,7 @@
   - Discussion - check off "Allow people to submit comments on new posts"
 - Add pages:
   - Homepage (slug: homepage) with hardcoded content (set template to homepage template)
-  - Buy Premium page (slug: buy-premium) with hardcoded content (set template to buy-premium template)
+  - Buy Premium License page (slug: buy-premium) with hardcoded content (set template to buy-premium template)
   - FAQ page (slug: faq) with hardcoded content (set template to faq template)
   - Privacy Policy page (slug: privacy-policy) with hardcoded content
   - WordPress Plugin Json (slug: wordpress-plugin-json) with hardcoded content (set template to wordpress-plugin-json template)
