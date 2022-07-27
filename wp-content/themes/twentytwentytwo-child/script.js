@@ -186,10 +186,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var youtubePlayer = document.getElementById("youtube-player");
     var header = document.getElementsByTagName('header')[0];
     var footer = document.getElementsByTagName('footer')[0];
-    var postTitle = document.getElementsByTagName('h1')['0'];
-    var blockSeparators = document.querySelectorAll('.wp-block-separator');
-    var separatorsArray = Array.prototype.slice.call(blockSeparators, 0);
     var dateLinks = document.querySelectorAll('.wp-block-post-date a');
+    var title = document.getElementsByTagName('h1')[0];
     var videosParent = document.querySelector('.youtube-videos');
     var youtubeItems = document.querySelectorAll('.youtube-item');
     var youtubeItemsArray = Array.prototype.slice.call(youtubeItems, 0);
@@ -221,18 +219,15 @@ document.addEventListener("DOMContentLoaded", function() {
         // Only if the website is in an iframe
         if (window.self != window.top) {
             // Hide header n footer
-            header.classList.add('website-only');
-            footer.classList.add('website-only');
+            header.classList.add('premium-only');
+            footer.classList.add('premium-only');
             // Make youtube player hidden (youtube player api used within wp-how-to plugin)
             if (youtubePlayer) {
                 youtubePlayer.style.display = 'none';
             }
-            // Hide title
-            if (postTitle) {
-                postTitle.classList.add('website-only');
-                separatorsArray.forEach(function(element) {
-                    element.classList.add('website-only');
-                });
+            var titleHeight = 0;
+            if (title) {
+                titleHeight += title.offsetHeight;
             }
             relevanceFilter.classList.add('relevance-filter');
             relevanceFilter.classList.add('selected');
