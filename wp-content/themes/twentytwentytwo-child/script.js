@@ -14,7 +14,7 @@ function addCustomSearch() {
         if (wpHowTo_websiteUrl === 'https://wphowto.tv/' && window.self === window.top) {
             var infoParagraph = document.createElement('p');
             infoParagraph.classList.add('info-paragraph');
-            infoParagraph.innerHTML = "On this website you can find video tutorials for 10.000+ most popular WordPress plugins and 300+ most searched topics related to WordPress. Scroll down or use the search to find exactly what you need. <b>Check out the official <a href='https://plugin.wphowto.tv' target='_blank'>'WP How to' WordPress plugin</a> that brings all of these video tutorials to your admin dashboard, with many other additional features!</b>";
+            infoParagraph.innerHTML = "On this website you can find WordPress tutorial videos for 10.000+ most popular WordPress plugins and 300+ most searched topics related to WordPress. Scroll down or use the search to find exactly what you need. <b>Check out the official <a href='https://plugin.wphowto.tv' target='_blank'>'WP How to' WordPress plugin</a> that brings all of these WordPress tutorial videos to your admin dashboard, with many other additional features!</b>";
             mainContent.appendChild(infoParagraph);
 
             function addInfo() {
@@ -186,8 +186,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var youtubePlayer = document.getElementById("youtube-player");
     var header = document.getElementsByTagName('header')[0];
     var footer = document.getElementsByTagName('footer')[0];
+    var postTitle = document.getElementsByTagName('h1')['0'];
+    var blockSeparators = document.querySelectorAll('.wp-block-separator');
+    var separatorsArray = Array.prototype.slice.call(blockSeparators, 0);
     var dateLinks = document.querySelectorAll('.wp-block-post-date a');
-    var title = document.getElementsByTagName('h1')[0];
     var videosParent = document.querySelector('.youtube-videos');
     var youtubeItems = document.querySelectorAll('.youtube-item');
     var youtubeItemsArray = Array.prototype.slice.call(youtubeItems, 0);
@@ -219,15 +221,18 @@ document.addEventListener("DOMContentLoaded", function() {
         // Only if the website is in an iframe
         if (window.self != window.top) {
             // Hide header n footer
-            header.classList.add('premium-only');
-            footer.classList.add('premium-only');
+            header.classList.add('website-only');
+            footer.classList.add('website-only');
             // Make youtube player hidden (youtube player api used within wp-how-to plugin)
             if (youtubePlayer) {
                 youtubePlayer.style.display = 'none';
             }
-            var titleHeight = 0;
-            if (title) {
-                titleHeight += title.offsetHeight;
+            // Hide title
+            if (postTitle) {
+                postTitle.classList.add('website-only');
+                separatorsArray.forEach(function(element) {
+                    element.classList.add('website-only');
+                });
             }
             relevanceFilter.classList.add('relevance-filter');
             relevanceFilter.classList.add('selected');
