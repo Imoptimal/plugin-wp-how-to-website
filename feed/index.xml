@@ -8,11 +8,11 @@
 	>
 
 <channel>
-	<title>WP How to</title>
+	<title>&#039;WP How to &#8211; WordPress Tutorial Videos&#039;</title>
 	<atom:link href="http://localhost/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>WordPress Plugin</description>
-	<lastBuildDate>Wed, 27 Jul 2022 16:17:41 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 23 Aug 2022 16:53:27 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -22,7 +22,7 @@
 
 <image>
 	<url>/wp-content/uploads/2022/06/wp-how-to-150x150.png</url>
-	<title>WP How to</title>
+	<title>&#039;WP How to &#8211; WordPress Tutorial Videos&#039;</title>
 	<link>/</link>
 	<width>32</width>
 	<height>32</height>

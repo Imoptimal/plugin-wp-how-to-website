@@ -3,7 +3,7 @@
 # Instructions:
 - Install wordpress locally, using Local by Flywheel - PHP version must be > 7.4 (Simply Static plugin requires it).
 - Adjust settings in admin dashboard:
-  - General - set title to 'WP How to'; set tagline to 'WordPress Plugin'
+  - General - set title to "'WP How to - WordPress Tutorial Videos'"; set tagline to "WordPress Plugin"
   - Writing - set static page as a Homepage (homepage created as instructed below)
   - Discussion - check off "Allow people to submit comments on new posts"
 - Add pages:
