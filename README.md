@@ -13,13 +13,14 @@
   - Privacy Policy page (slug: privacy-policy) with hardcoded content
   - WordPress Plugin Json (slug: wordpress-plugin-json) with hardcoded content (set template to wordpress-plugin-json template)
   - WordPress Topic Json (slug: wordpress-topic-json) with hardcoded content (set template to wordpress-topic-json template)
+  - WordPress Keywords Json (slug: wordpress-keywords-json) with hardcoded content (set template to wordpress-keywords-json template)
 - Download the latest official wordpress theme (parent) and activate the customized child theme:
   - Open full site editor and edit header:
     - Add site logo to header (resize uploaded logo to width of 150px) - to the left position
     - Add navigation ('Buy Premium', 'Go to Video Tutorials' - homepage of main domain - open in the new tab, 'FAQ' and 'Privacy Policy' page) - to the right position
   - Edit footer:
     - Add columns block ('Buy Premium', 'FAQ' and 'Privacy Policy' page - open all in the new tab) - to the center position (alignment)
-    - Add navigation with 'WordPress Plugin Json' and 'WordPress Topic Json' pages (to generate static pages) - will be hidden by javascript.
+    - Add navigation with 'WordPress Plugin Json', 'WordPress Topic Json' and 'WordPress Keywords Json' pages (to generate static pages) - will be hidden by javascript.
 - Install plugins:
   - Simply Static
 - Convert webiste to static using Simply static plugin (Set relative paths - avoiding issue with website resources).
